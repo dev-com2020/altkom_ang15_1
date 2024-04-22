@@ -4,4 +4,5 @@
     <li (click)="selectedProduct = 'Logi'">mysz logitech</li>
     <li (click)="selectedProduct = 'Asus'">monitor Asus</li>
 </ul>
-<app-product-detail [name]="selectedProduct"></app-product-detail>
+<app-product-detail [name]="selectedProduct" (bought)="onBuy($event)"></app-product-detail>
+<!-- <app-product-detail name="selectedProduct"></app-product-detail> -->
