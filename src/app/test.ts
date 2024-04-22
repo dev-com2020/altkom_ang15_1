@@ -41,6 +41,12 @@ function sayHello6(name:string, ...names:string[]): string {
 const double = (x: number) => x * 2;
 const add = (x:number,y:number) => x + y
 
+function add2<T>(arg: T[]):T[] {
+    console.log(arg.length)
+    return arg
+}
+
+add2<number>([1])
 
 let res = add(5,7)
 console.log(res)
@@ -88,3 +94,72 @@ enum StackIndex {
 
 const selectBox: StackIndex = StackIndex.None
 
+class Car {
+    private color: string
+
+    constructor(color: string = 'red'){
+        this.color = color
+    }
+
+    get getColor():string {
+        return this.color
+    }
+
+    static honk(): string {
+        return 'BIIIP!'
+    }
+
+    drive():void{
+        this.color = 'black'
+    }
+}
+
+
+class Sedan extends Car {
+    model: string
+
+    constructor(color: string, model: string){
+        super(color)
+        this.model = model
+    }
+}
+
+interface ExcHandSettings {
+    logAll: boolean;
+}
+
+// class CustomErrHandler implements ExcHandSettings {
+//     logAll: boolean;
+// }
+
+function Banana(target: Function):void {
+    target.prototype.banana = function():void {
+        console.log('Mamy banana!')
+    }
+}
+
+function Banana2(message: string) {
+    return function(target:Function){
+    target.prototype.banana = function():void {
+        console.log(message)
+    }
+}
+}
+
+@Banana2('Banany są ok')
+class Koszyk {}
+const basket: any = new Koszyk()
+basket.banana()
+
+interface Hero {
+    name: string
+    power: number
+}
+
+const hero: Partial<Hero> = {
+    name: 'Angular'
+}
+
+interface Jedi {
+    powers: number[] | Record<string,number>
+}
