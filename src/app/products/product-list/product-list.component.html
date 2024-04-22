@@ -1,1 +1,7 @@
-<p>product-list works!</p>
+<h2>Product list</h2>
+<ul>
+    <li (click)="selectedProduct = 'Yeti'">mikrofon Yeti</li>
+    <li (click)="selectedProduct = 'Logi'">mysz logitech</li>
+    <li (click)="selectedProduct = 'Asus'">monitor Asus</li>
+</ul>
+<app-product-detail [name]="selectedProduct"></app-product-detail>
