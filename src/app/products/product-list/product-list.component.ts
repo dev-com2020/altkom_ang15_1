@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-selectedProduct = ''
+selectedProduct = 'nieznany'
 
 onBuy(name: string) {
   window.alert(`Dodaleś do listy ${name}!`)
