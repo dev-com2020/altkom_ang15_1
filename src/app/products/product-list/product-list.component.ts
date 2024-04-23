@@ -1,33 +1,20 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 import { Product } from '../product';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements AfterViewInit {
+export class ProductListComponent implements AfterViewInit, OnInit {
   selectedProduct: Product | undefined
   today = new Date()
 
-  products: Product[] = [
-    {
-      name: 'Yeti',
-      price: 1000
-    },
-    {
-      name: 'Logi',
-      price: 800
-    },
-    {
-      name: 'Asus',
-      price: 4000
-    },
-    {
-      name: 'Anycubic',
-      price: 5000
-    }]
+  products: Product[] = []
+
+  constructor(private productService: ProductsService){}
 
   @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined
 
@@ -35,6 +22,9 @@ export class ProductListComponent implements AfterViewInit {
     if (this.productDetail) {
       console.log(this.productDetail.product)
     }
+  }
+  ngOnInit(): void {
+      this.products = this.productService.getProducts()
   }
 
   onBuy() {
