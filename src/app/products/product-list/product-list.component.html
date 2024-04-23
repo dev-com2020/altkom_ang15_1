@@ -12,6 +12,6 @@
 [product]="selectedProduct"
 (bought)="onBuy()"
 ></app-product-detail>
-<br><hr>
-<span *ngIf="!selectedProduct">Powered by Altkom Szkolenia 2024</span><br>
+<br><hr><br>
+<span appCopyright *ngIf="!selectedProduct"></span><br><br>
 <span>{{ today | date: 'fullDate'}}</span><br>
