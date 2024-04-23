@@ -4,6 +4,7 @@ import { map, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 interface ProductDTO {
+  id: number
   title: string
   price: number
 }
@@ -17,32 +18,24 @@ export class ProductsService {
 
   private productsUrl = 'https://fakestoreapi.com/products'
 
-  private products = [
-    {
-      name: 'Yeti',
-      price: 1000
-    },
-    {
-      name: 'Logi',
-      price: 800
-    },
-    {
-      name: 'Asus',
-      price: 4000
-    },
-    {
-      name: 'Anycubic',
-      price: 5000
+  private convertToProduct(product:ProductDTO):Product {
+    return {
+      id: product.id,
+      name: product.title,
+      price: product.price
     }
-  ]
+  }
+
+  getProduct(id: number): Observable<Product>{
+    return this.http.get<ProductDTO>(`${this.productsUrl}/${id}`).pipe(
+      map(product => this.convertToProduct(product))
+    )
+  }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<ProductDTO[]>(this.productsUrl).pipe(
       map(products => products.map(product => {
-        return {
-          name: product.title,
-          price: product.price
-        }
+        return this.convertToProduct(product)
       }))
     )
   }

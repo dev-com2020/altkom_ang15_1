@@ -7,7 +7,7 @@
     Nie wybrano produktu...
 </ng-template> -->
 
-<div *ngIf="product">
+<div *ngIf="product$ | async as product">
     <h2>Product details</h2>
     <h3>{{ product.name }}</h3>
     <div [ngSwitch]="product.name">

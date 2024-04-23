@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Product } from '../product';
+import { Observable } from 'rxjs';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,21 +13,18 @@ import { Product } from '../product';
 export class ProductDetailComponent implements OnInit, OnChanges {
   @Input() product: Product | undefined
   @Output() bought = new EventEmitter();
+  @Input() id = -1
+  product$: Observable<Product> | undefined
 
-  constructor(){
+  constructor(private productService: ProductsService){
     console.log(`Produkt ${this.product} w konstruktorze`)
   }
 
   ngOnInit(): void {
       console.log(`Produkt ${this.product} w OnInit`)
   }
-  ngOnChanges(changes: SimpleChanges): void {
-      const product = changes['product']
-      if (!product.isFirstChange() && product.previousValue) {
-        const oldValue = product.previousValue.name
-        const newValue = product.currentValue.name
-        console.log(`Produkt zmieniony z ${oldValue} na ${newValue}`)
-      }
+  ngOnChanges(): void {
+      this.product$ = this.productService.getProduct(this.id)
   }
 
   buy() {
