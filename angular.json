@@ -19,6 +19,7 @@
             "polyfills": [
               "zone.js"
             ],
+            "localize": ["pl"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
@@ -30,6 +31,9 @@
             "scripts": []
           },
           "configurations": {
+            "pl": {
+              "localize": ["pl-PL"]
+            },
             "production": {
               "budgets": [
                 {

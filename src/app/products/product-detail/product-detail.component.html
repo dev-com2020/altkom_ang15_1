@@ -7,10 +7,10 @@
     Nie wybrano produktu...
 </ng-template> -->
 
-<div *ngIf="name">
+<div *ngIf="product">
     <h2>Product details</h2>
-    <h3>{{ productName }}</h3>
-    <div [ngSwitch]="name">
+    <h3>{{ product.name }}</h3>
+    <div [ngSwitch]="product.name">
         <p *ngSwitchCase="'Yeti'">
             Mikrofon
         </p>

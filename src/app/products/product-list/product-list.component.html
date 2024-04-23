@@ -1,15 +1,16 @@
 <h2>Product list</h2>
 <ul>
     <li *ngFor="let product of products; let i=index" (click)="selectedProduct = product">
-        {{i+1}} . {{product}}
+        {{i+1}} . {{product.name | uppercase}} <br>
+        <span>{{ product.price | currency: 'PLN' }}</span>
     </li>
 </ul>
 <!-- <app-product-detail [name]="selectedProduct" (bought)="onBuy($event)"></app-product-detail> -->
 <!-- <app-product-detail name="selectedProduct"></app-product-detail> -->
 <app-product-detail
 #product
-[name]="selectedProduct"
-(bought)="onBuy($event)"
+[product]="selectedProduct"
+(bought)="onBuy()"
 ></app-product-detail>
 <br><hr>
 <span *ngIf="!selectedProduct">Powered by Altkom Szkolenia 2024</span>
