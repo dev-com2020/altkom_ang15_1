@@ -1,9 +1,9 @@
 <h2>Product list</h2>
 <ul>
-    <li *ngFor="let product of (products$ | async); let i=index" (click)="selectedProduct = product">
+    <li *ngFor="let product of products; let i=index" (click)="selectedProduct = product">
         <!-- <app-product-view [id]="i"></app-product-view> -->
         <span>{{product.name}}</span>
-        <span>{{ product.price | customCurrency: 'Zł' }}</span>
+        <span>{{ product.price }}</span>
     </li>
 </ul>
 <!-- <app-product-detail [name]="selectedProduct" (bought)="onBuy($event)"></app-product-detail> -->
@@ -19,5 +19,5 @@
 <h2>Ulubione</h2>
 <app-favorites></app-favorites>
 <div>
-    
+<app-product-create (added)="onAdd($event)"></app-product-create>
 </div>

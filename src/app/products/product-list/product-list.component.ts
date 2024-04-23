@@ -34,9 +34,10 @@ export class ProductListComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   private getProducts(){
-      this.products$ = this.productService.getProducts()
-    }
-  
+    this.productService.getProducts().subscribe(products => {
+      this.products = products
+    })
+  }  
 
   ngOnInit(): void {
       this.getProducts()
@@ -49,6 +50,12 @@ export class ProductListComponent implements AfterViewInit, OnInit, OnDestroy {
   onBuy() {
     window.alert(`Dodaleś do listy ${this.selectedProduct?.name}!`)
   }
+
+  onAdd(product: Product){
+    this.products.push(product)
+  }
+
+  
 }
 
 

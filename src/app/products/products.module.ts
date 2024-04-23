@@ -8,6 +8,7 @@ import { CopyrightDirective } from './copyright.directive';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { KeyLoggerComponent } from '../key-logger/key-logger.component';
+import { ProductCreateComponent } from './product-create/product-create.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { KeyLoggerComponent } from '../key-logger/key-logger.component';
     CustomCurrencyPipe,
     CopyrightDirective,
     FavoritesComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    ProductCreateComponent
   ],
   imports: [
     CommonModule,
