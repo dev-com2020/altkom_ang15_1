@@ -10,6 +10,8 @@
 <div *ngIf="product$ | async as product">
     <h2>Product details</h2>
     <h3>{{ product.name }}</h3>
+    <input placeholder="nowa cena" #price/>
+    <button (click)="changePrice(product, price.valueAsNumber)">ZMIEŃ</button>
     <div [ngSwitch]="product.name">
         <p *ngSwitchCase="'Yeti'">
             Mikrofon

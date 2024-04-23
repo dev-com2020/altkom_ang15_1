@@ -41,6 +41,10 @@ export class ProductsService {
     )
   }
 
+  updateProduct(id: number, price: number): Observable<void> {
+    return this.http.patch<void>(`${this.productsUrl}/${id}`, {price})
+  }
+
   getProducts(): Observable<Product[]> {
     return this.http.get<ProductDTO[]>(this.productsUrl).pipe(
       map(products => products.map(product => {
