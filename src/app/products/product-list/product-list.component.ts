@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 import { Product } from '../product';
 import { ProductsService } from '../products.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -19,6 +19,8 @@ export class ProductListComponent implements AfterViewInit, OnInit, OnDestroy {
 
   products: Product[] = []
 
+  products$: Observable<Product[]> | undefined
+
   private productSub: Subscription | undefined
 
   constructor(private productService: ProductsService){}
@@ -32,10 +34,9 @@ export class ProductListComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   private getProducts(){
-    this.productSub = this.productService.getProducts().subscribe(products => {
-      this.products = products
-    })
-  }
+      this.products$ = this.productService.getProducts()
+    }
+  
 
   ngOnInit(): void {
       this.getProducts()
