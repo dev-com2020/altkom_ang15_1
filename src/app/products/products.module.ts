@@ -5,6 +5,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CustomCurrencyPipe } from './custom-currency.pipe';
 import { CopyrightDirective } from './copyright.directive';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { CopyrightDirective } from './copyright.directive';
     ProductListComponent,
     ProductDetailComponent,
     CustomCurrencyPipe,
-    CopyrightDirective
+    CopyrightDirective,
+    FavoritesComponent
   ],
   imports: [
     CommonModule,
