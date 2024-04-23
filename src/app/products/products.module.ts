@@ -7,6 +7,7 @@ import { CustomCurrencyPipe } from './custom-currency.pipe';
 import { CopyrightDirective } from './copyright.directive';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { ProductViewComponent } from './product-view/product-view.component';
+import { KeyLoggerComponent } from '../key-logger/key-logger.component';
 
 
 @NgModule({

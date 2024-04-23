@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
+import { KeyLoggerComponent } from './key-logger/key-logger.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    KeyLoggerComponent
   ],
   imports: [
     BrowserModule,
