@@ -8,7 +8,7 @@ import { Observable, Subscription } from 'rxjs';
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
-  viewProviders: [ProductsService]
+  // viewProviders: [ProductsService]
   // providers:[
   //   {provide: ProductsService,useClass: ProductsService}
   // ]
