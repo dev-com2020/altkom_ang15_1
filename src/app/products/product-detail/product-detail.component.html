@@ -1,3 +1,6 @@
-<h2>Product details</h2>
-<h3>{{ productName }}</h3>
-<button (click)="buy()">Dodaj do zamówienia</button>
+<div *ngIf="name">
+<!-- <div [hidden]="!name">  -->
+    <h2>Product details</h2>
+    <h3>{{ productName }}</h3>
+    <button (click)="buy()">Dodaj do zamówienia</button>
+</div>
