@@ -1,8 +1,8 @@
 <h2>Product list</h2>
 <ul>
-    <li (click)="selectedProduct = 'Yeti'">mikrofon Yeti</li>
-    <li (click)="selectedProduct = 'Logi'">mysz logitech</li>
-    <li (click)="selectedProduct = 'Asus'">monitor Asus</li>
+    <li *ngFor="let product of products; let i=index" (click)="selectedProduct = product">
+        {{i+1}} . {{product}}
+    </li>
 </ul>
 <!-- <app-product-detail [name]="selectedProduct" (bought)="onBuy($event)"></app-product-detail> -->
 <!-- <app-product-detail name="selectedProduct"></app-product-detail> -->
@@ -12,4 +12,4 @@
 (bought)="onBuy($event)"
 ></app-product-detail>
 <br><hr>
-<span>{{product.name}}</span>
+<span *ngIf="!selectedProduct">Powered by Altkom Szkolenia 2024</span>

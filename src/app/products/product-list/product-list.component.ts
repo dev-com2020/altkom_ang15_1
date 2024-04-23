@@ -9,6 +9,8 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
 export class ProductListComponent implements AfterViewInit {
 selectedProduct = ''
 
+products = ['Yeti','Logi','Asus','Anycubic']
+
 @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined
 
 ngAfterViewInit(): void {

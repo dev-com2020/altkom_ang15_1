@@ -1,6 +1,28 @@
-<div *ngIf="name">
-<!-- <div [hidden]="!name">  -->
+<!-- <div *ngIf="name; else loading">
     <h2>Product details</h2>
     <h3>{{ productName }}</h3>
+    <button (click)="buy()">Dodaj do zamówienia</button>
+</div>
+<ng-template #loading>
+    Nie wybrano produktu...
+</ng-template> -->
+
+<div *ngIf="name">
+    <h2>Product details</h2>
+    <h3>{{ productName }}</h3>
+    <div [ngSwitch]="name">
+        <p *ngSwitchCase="'Yeti'">
+            Mikrofon
+        </p>
+        <p *ngSwitchCase="'Logi'">
+            Mysz
+        </p>
+        <p *ngSwitchCase="'Asus'">
+            Monitor
+        </p>
+        <p *ngSwitchDefault>
+            Jest to produkt do niewiadomo czego...
+        </p>
+    </div>
     <button (click)="buy()">Dodaj do zamówienia</button>
 </div>
