@@ -10,7 +10,7 @@ import { Product } from '../product';
 })
 export class ProductDetailComponent implements OnInit, OnChanges {
   @Input() product: Product | undefined
-  @Output() bought = new EventEmitter<string>();
+  @Output() bought = new EventEmitter();
 
   constructor(){
     console.log(`Produkt ${this.product} w konstruktorze`)
@@ -21,7 +21,7 @@ export class ProductDetailComponent implements OnInit, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
       const product = changes['product']
-      if (!product.isFirstChange()) {
+      if (!product.isFirstChange() && product.previousValue) {
         const oldValue = product.previousValue.name
         const newValue = product.currentValue.name
         console.log(`Produkt zmieniony z ${oldValue} na ${newValue}`)

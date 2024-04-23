@@ -9,6 +9,7 @@ import { Product } from '../product';
 })
 export class ProductListComponent implements AfterViewInit {
   selectedProduct: Product | undefined
+  today = new Date()
 
   products: Product[] = [
     {
