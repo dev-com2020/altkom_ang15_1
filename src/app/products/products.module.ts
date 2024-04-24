@@ -9,6 +9,8 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 // import { KeyLoggerComponent } from '../key-logger/key-logger.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
+import { ProductsRoutingModule } from './products-routing.module';
+import { AddProductPageComponent } from './add-product-page/add-product-page.component';
 
 
 @NgModule({
@@ -19,11 +21,13 @@ import { ProductCreateComponent } from './product-create/product-create.componen
     CopyrightDirective,
     FavoritesComponent,
     ProductViewComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    AddProductPageComponent
   ],
   imports: [
     CommonModule,
-    ProductComponent
+    ProductComponent,
+    ProductsRoutingModule
   ],
   exports:[ProductListComponent]
 })

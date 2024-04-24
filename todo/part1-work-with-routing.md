@@ -31,3 +31,8 @@ P2.3 Utwórz w nim (`routing`) tablice routingu - gdzie będą odniesienia do:
 sprawdz liniki w `main-menu` aby skonfrontować poprawność.
 
 Zdejmij komponenty `favorites` i `product-create` z `product-list` (od teraz będą obsugiwane przez routing).
+
+Dodanie nowego modulu razem z tablica routingu + import:
+```
+ng g m auth --routing --module=app --dry-run
+```
