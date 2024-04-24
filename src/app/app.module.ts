@@ -4,11 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
 import { KeyLoggerComponent } from './key-logger/key-logger.component';
+import { MainMenuComponent } from './main-menu/main-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    KeyLoggerComponent
+    KeyLoggerComponent,
+    MainMenuComponent
   ],
   imports: [
     BrowserModule,
