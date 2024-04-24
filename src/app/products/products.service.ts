@@ -9,6 +9,8 @@ interface ProductDTO {
   price: number
 }
 
+
+// Stateless Service 
 @Injectable({
   providedIn: 'root'
 })

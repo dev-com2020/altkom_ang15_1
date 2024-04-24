@@ -6,10 +6,10 @@ import { MenuItem } from './menu-item';
   selector: 'app-main-menu',
   template: `
     <nav class="navbar navbar-expand-lg navbar-light bg-light px-3 mb-3">
-      <button class="navbar-toggler" type="button">
+      <button class="navbar-toggler" type="button" (click)="isMenuExpanded = !isMenuExpanded">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse show">
+      <div class="collapse navbar-collapse" [ngClass]="{ 'show': isMenuExpanded }">
         <ul class="navbar-nav">
           <li class="nav-item" *ngFor="let item of menuItems">
             <a class="nav-link" [href]="item.link">{{item.title}}</a>
@@ -28,6 +28,7 @@ import { MenuItem } from './menu-item';
 })
 export class MainMenuComponent {
 
+    isMenuExpanded = false;
 
     menuItems: MenuItem[] = [
       { link: "/", title: "Home" },
