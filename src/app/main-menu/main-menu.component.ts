@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-interface MenuItem {
-    link: string;
-    title: string;
-}
+import { MenuItem } from './menu-item';
 
 
 @Component({
