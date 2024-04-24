@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ProductsService } from '../products.service';
 
 @Component({
   template: `
@@ -67,6 +68,8 @@ import { NgForm } from '@angular/forms';
 })
 export class AddProductPageComponent {
 
+    // Dodaj za pomocą DI odpowiedni service + wyślij form.value
+    constructor(private productService: ProductsService) {}
     formError = ""
 
     handleSubmit(form: NgForm) {
@@ -78,6 +81,17 @@ export class AddProductPageComponent {
             this.formError = "Uzupenij wszystkie pola....";
             return;
         }
-        console.log("Wartość fromularza", form.value);
+        // console.log("Wartość fromularza", form.value);
+        
+        const { name, price } = form.value;
+        this.productService.addProduct(name, price).subscribe({
+            next: () => {
+                form.reset();
+            },
+            error: () => {
+                this.formError = "Server error: Nie udao się wyslac fomularza...."
+            },
+            // complete: () => {}
+        })
     }
 }
