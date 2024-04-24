@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
 import { KeyLoggerComponent } from './key-logger/key-logger.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { AppRoutingModule } from './app-routing.module';
+import { SampleModule } from './sample/sample.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
   imports: [
     BrowserModule,
     ProductsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    SampleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
