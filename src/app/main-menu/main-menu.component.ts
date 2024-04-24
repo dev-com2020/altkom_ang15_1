@@ -12,12 +12,12 @@ import { MenuItem } from './menu-item';
       <div class="collapse navbar-collapse" [ngClass]="{ 'show': isMenuExpanded }">
         <ul class="navbar-nav">
           <li class="nav-item" *ngFor="let item of menuItems">
-            <a class="nav-link" [href]="item.link">{{item.title}}</a>
+            <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="item.link">{{item.title}}</a>
           </li>
         </ul>
       </div>
       <div class="text-light">
-        <a class="btn btn-primary" href="/add-new-product">
+        <a class="btn btn-primary" routerLink="/add-new-product">
           Add new
         </a>
       </div>
