@@ -9,10 +9,12 @@ import { ProductsService } from '../products.service';
 })
 export class ProductCreateComponent {
 
+  productName = 'New name'
   @Output() added = new EventEmitter<Product>()
 
-  createProduct(name:string,price:number){
-    this.productsService.addProduct(name,price).subscribe(product => {
+  createProduct(price: number){
+    // console.log(this.productName, price)
+    this.productsService.addProduct(this.productName, price).subscribe(product => {
       this.added.emit(product)
     })
   }

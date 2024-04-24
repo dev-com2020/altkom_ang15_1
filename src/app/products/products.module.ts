@@ -11,6 +11,7 @@ import { ProductViewComponent } from './product-view/product-view.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { AddProductPageComponent } from './add-product-page/add-product-page.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { AddProductPageComponent } from './add-product-page/add-product-page.com
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ProductComponent,
     ProductsRoutingModule
   ],

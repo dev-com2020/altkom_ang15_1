@@ -1,12 +1,12 @@
-<div>
+<div #tutaj>
     <label for="name">Name</label>
-    <input id="name" #name/>
+    <input id="name" #name [(ngModel)]="productName" />
 </div>
 <div>
     <label for="price">Price</label>
-    <input id="price" #price/>
+    <input id="price" #price type="number" />
 </div>
 <div>
-    <button (click)="createProduct(name.value, price.valueAsNumber)">Create</button>
+    <button (click)="createProduct(price.valueAsNumber)">Create</button>
 </div>
 
